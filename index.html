@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foxified's Socials Stuff</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="icons/favicon.png" type="image/x-icon">
+    <style>
+        :root {
+            --primary-color: #416046;
+            --secondary-color: #486259c3;
+            --accent-color: #677d6abe;
+            --particle-color: #e19a49;
+            --text-color: #dfcbae;
+            --background-color: #1A3636;
+            --gradient-start: #193232; 
+            --gradient-end: #0e514a;   
+        }
+
+        body {
+            font-family: 'Kode Mono', monospace;
+            /* background-color: var(--background-color); */
+            color: var(--text-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden; /* Prevents scrollbars */
+            position: relative;
+            background: linear-gradient(120deg, var(--gradient-start), var(--gradient-end));
+            background-size: 300% 400%;
+            animation: gradientAnimation 14s ease infinite;
+            opacity: 0; /* Start invisible */
+            animation: fadeIn 5s forwards; /* Fade-in animation */
+        }
+
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1; /* Fade to full opacity */
+            }
+        }
+
+        .container {
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .profile-wrapper {
+            position: relative;
+            display: inline-block; /* Allows for positioning the pseudo-element */
+            border-radius: 50%; /* Ensure the wrapper is also rounded */
+            overflow: hidden; /* Hide overflow to maintain rounded edges */
+            width: 200px; /* Ensure the wrapper is the same size as the image */
+            height: 200px; /* Ensure the wrapper is the same size as the image */
+            /*pointer-events: none; /* This disables all mouse events on the image */
+        }
+
+        .profile-image {
+            width: 97%; /* Make the image take the full width of the wrapper */
+            height: 97%; /* Make the image take the full height of the wrapper */
+            border-radius: 50%; /* Round the image */
+            object-fit: cover;
+            position: relative; /* Set relative position for the pseudo-element */
+            z-index: 1; /* Ensure image is above the border */
+            pointer-events: none; /* This disables all mouse events on the image */
+        }
+
+        .profile-wrapper::before {
+            content: '';
+            position: absolute;
+            width: 120%; /* Increase width to extend beyond the image */
+            height: 120%; /* Increase height to extend beyond the image */
+            border-radius: 30%;
+            border: 30px solid rgba(250, 248, 241, 0.944); /* Border color */
+            box-shadow: 0 0 20px rgba(255, 191, 0, 0.749); /* Shadow effect for the border */
+            z-index: 0; /* Ensure border is below the image */
+            animation: pulse 4s infinite; /* Optional: Pulsing effect */
+            /*pointer-events: none; /* This disables all mouse events on the image */
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(0);
+            }
+            50% {
+                transform: scale(1.5);
+            }
+            100% {
+                transform: scale(9);
+            }
+        }
+
+        .blush-image {
+            position: absolute;
+            top: 0; /* Align to the top */
+            left: 0; /* Align to the left */
+            width: 200px; /* Match profile image size */
+            height: 200px; /* Match profile image size */
+            border-radius: 50%; /* Round the blush image */
+            opacity: 0; /* Start hidden */
+            transition: opacity 0.5s ease; /* Smooth transition for fade-in/out */
+            pointer-events: none; /* This disables all mouse events on the image */
+            z-index: 2; /* Ensure image is above the pfp */
+        }
+
+        /* Fade in effect on click */
+        .profile-wrapper:focus .blush-image,
+        .profile-wrapper:active .blush-image {
+            opacity: 1; /* Show the blush image when clicked */
+            animation: fadeOut 2s forwards; /* Fade out after 2 seconds */
+        }
+
+        /* Keyframes for fade out */
+        @keyframes fadeOut {
+            0% {
+                opacity: 0; /* Start fully visible */
+            }
+            50% {
+                opacity: 1; /* Fade to invisible */
+            }
+            100% {
+                opacity: 0; /* Fade to invisible */
+            }
+        }
+
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+
+        .link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            text-decoration: none;
+            padding: 12px 24px;
+            margin: 10px 12px;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            font-size: 16px;
+        }
+
+        .link img {
+            width: 32px;
+            height: 32px;
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+
+        .link:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+            background-color: var(--accent-color);
+        }
+
+        .particle {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background-color: var(--particle-color);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: float 15s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) translateX(0);
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.3;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(50px);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="profile-wrapper" tabindex="0">
+          <img src="icons/blush.png" alt="Blush UwU" class="blush-image" id="blushImage">
+          <img src="icons/pfp.png" alt="Profile Picture" class="profile-image" id="profileImage">
+        </div>
+
+        <h1>Foxified</h1>
+
+        <p>Silly fluff on the internet, does a bit of everything.</p>
+        <p>Art. Code. Bark.</p>
+
+        <a href="https://t.me/iFoxifed" class="link"><img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram Logo"> iFoxifed</a>
+        <a href="https://www.reddit.com/user/iFoxified" class="link"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/b/bd/Reddit_Logo_Icon.svg/1024px-Reddit_Logo_Icon.svg.png" alt="Reddit Logo"> iFoxifed</a>
+        <a href="https://barq.app/p/kvju55X" class="link"><img src="https://web.barq.app/logo.svg" alt="Barq Logo"> Foxified</a>
+        <a href="https://tiktok.com/@knbfgfoxy" class="link"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Ionicons_logo-tiktok.svg/512px-Ionicons_logo-tiktok.svg.png" alt="TikTok Logo"> knbfgfoxy</a>
+    </div>
+
+    <script>
+        const particleCount = 50;
+
+        for (let i = 0; i < particleCount; i++) {
+            let particle = document.createElement('div');
+            particle.classList.add('particle');
+            document.body.appendChild(particle);
+
+            // random starting position from the bottom
+            particle.style.left = `${Math.random() * 100}vw`;
+            particle.style.bottom = `-30px`; // Start from the bottom
+            particle.style.animationDuration = `${Math.random() * 10 + 5}s`;
+            particle.style.animationDelay = `${Math.random() * 5}s`;
+            particle.style.transform = `scale(${Math.random()})`;
+        }
+
+
+        const profileImage = document.getElementById('profileImage');
+        const blushImage = document.getElementById('blushImage');
+
+        // Function to show blush image
+        function showBlush() {
+            blushImage.classList.add('visible'); // Show the blush image
+            setTimeout(() => {
+                blushImage.classList.remove('visible'); // Hide after 2 seconds
+            }, 2000);
+        }
+
+        // Event listener for click on the profile image
+        profileImage.addEventListener('click', showBlush);
+    </script>
+</body>
+</html>
