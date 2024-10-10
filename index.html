@@ -21,7 +21,6 @@
 
         body {
             font-family: 'Kode Mono', monospace;
-            /* background-color: var(--background-color); */
             color: var(--text-color);
             display: flex;
             flex-direction: column;
@@ -29,13 +28,28 @@
             justify-content: center;
             height: 100vh;
             margin: 0;
-            overflow: hidden; /* Prevents scrollbars */
             position: relative;
             background: linear-gradient(120deg, var(--gradient-start), var(--gradient-end));
             background-size: 300% 400%;
             animation: gradientAnimation 14s ease infinite;
-            opacity: 0; /* Start invisible */
-            animation: fadeIn 5s forwards; /* Fade-in animation */
+            opacity: 0;
+            animation: fadeIn 5s forwards;
+            overflow: hidden;
+        }
+
+        /* Adjust alignment on smaller screens */
+        @media (max-height: 650px) {
+            body {
+                justify-content: flex-start;
+                padding-top: 20px; /* Optional: Add padding to give some space at the top */
+            }
+        }
+
+        /* Adjust alignment on smaller screens */
+        @media (max-height: 630px) {
+            body {
+                overflow-y: visible;
+            }
         }
 
         @keyframes gradientAnimation {
@@ -69,8 +83,8 @@
             display: inline-block; /* Allows for positioning the pseudo-element */
             border-radius: 50%; /* Ensure the wrapper is also rounded */
             overflow: hidden; /* Hide overflow to maintain rounded edges */
-            width: 200px; /* Ensure the wrapper is the same size as the image */
-            height: 200px; /* Ensure the wrapper is the same size as the image */
+            width: 150px; /* Ensure the wrapper is the same size as the image */
+            height: 150px; /* Ensure the wrapper is the same size as the image */
             /*pointer-events: none; /* This disables all mouse events on the image */
         }
 
@@ -151,6 +165,8 @@
         p {
             font-size: 16px;
             margin-bottom: 30px;
+            padding-left: 20px;
+            padding-right: 20px;
         }
 
         .link {
@@ -220,8 +236,8 @@
         <p>Silly fluff on the internet, does a bit of everything.</p>
         <p>Art. Code. Bark.</p>
 
-        <a href="https://t.me/iFoxified" class="link"><img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram Logo"> iFoxified</a>
-        <a href="https://www.reddit.com/user/iFoxified" class="link"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/b/bd/Reddit_Logo_Icon.svg/1024px-Reddit_Logo_Icon.svg.png" alt="Reddit Logo"> iFoxified</a>
+        <a href="https://t.me/iFoxifed" class="link"><img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram Logo"> iFoxifed</a>
+        <a href="https://www.reddit.com/user/iFoxified" class="link"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/b/bd/Reddit_Logo_Icon.svg/1024px-Reddit_Logo_Icon.svg.png" alt="Reddit Logo"> iFoxifed</a>
         <a href="https://barq.app/p/kvju55X" class="link"><img src="https://web.barq.app/logo.svg" alt="Barq Logo"> Foxified</a>
         <a href="https://tiktok.com/@knbfgfoxy" class="link"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Ionicons_logo-tiktok.svg/512px-Ionicons_logo-tiktok.svg.png" alt="TikTok Logo"> knbfgfoxy</a>
     </div>
