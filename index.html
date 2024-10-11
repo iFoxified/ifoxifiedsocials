@@ -37,15 +37,15 @@
             overflow: hidden;
         }
 
-        /* Adjust alignment on smaller screens */
+        
         @media (max-height: 650px) {
             body {
                 justify-content: flex-start;
-                padding-top: 20px; /* Optional: Add padding to give some space at the top */
+                padding-top: 20px; 
             }
         }
 
-        /* Adjust alignment on smaller screens */
+        
         @media (max-height: 630px) {
             body {
                 overflow-y: visible;
@@ -66,7 +66,7 @@
 
         @keyframes fadeIn {
             to {
-                opacity: 1; /* Fade to full opacity */
+                opacity: 1;
             }
         }
 
@@ -80,35 +80,35 @@
 
         .profile-wrapper {
             position: relative;
-            display: inline-block; /* Allows for positioning the pseudo-element */
-            border-radius: 50%; /* Ensure the wrapper is also rounded */
-            overflow: hidden; /* Hide overflow to maintain rounded edges */
-            width: 200px; /* Ensure the wrapper is the same size as the image */
-            height: 200px; /* Ensure the wrapper is the same size as the image */
-            /*pointer-events: none; /* This disables all mouse events on the image */
+            display: inline-block; 
+            border-radius: 50%; 
+            overflow: hidden;
+            width: 200px; 
+            height: 200px; 
+            
         }
 
         .profile-image {
-            width: 97%; /* Make the image take the full width of the wrapper */
-            height: 97%; /* Make the image take the full height of the wrapper */
-            border-radius: 50%; /* Round the image */
+            width: 97%; 
+            height: 97%; 
+            border-radius: 50%; 
             object-fit: cover;
-            position: relative; /* Set relative position for the pseudo-element */
-            z-index: 1; /* Ensure image is above the border */
-            pointer-events: none; /* This disables all mouse events on the image */
+            position: relative; 
+            z-index: 1; 
+            pointer-events: none; 
         }
 
         .profile-wrapper::before {
             content: '';
             position: absolute;
-            width: 120%; /* Increase width to extend beyond the image */
-            height: 120%; /* Increase height to extend beyond the image */
+            width: 120%;
+            height: 120%; 
             border-radius: 30%;
-            border: 30px solid rgba(250, 248, 241, 0.944); /* Border color */
-            box-shadow: 0 0 20px rgba(255, 191, 0, 0.749); /* Shadow effect for the border */
-            z-index: 0; /* Ensure border is below the image */
-            animation: pulse 4s infinite; /* Optional: Pulsing effect */
-            /*pointer-events: none; /* This disables all mouse events on the image */
+            border: 30px solid rgba(250, 248, 241, 0.944); 
+            box-shadow: 0 0 20px rgba(255, 191, 0, 0.749);
+            z-index: 0; 
+            animation: pulse 4s infinite;
+        
         }
 
         @keyframes pulse {
@@ -125,34 +125,34 @@
 
         .blush-image {
             position: absolute;
-            top: 0; /* Align to the top */
-            left: 0; /* Align to the left */
-            width: 200px; /* Match profile image size */
-            height: 200px; /* Match profile image size */
-            border-radius: 50%; /* Round the blush image */
-            opacity: 0; /* Start hidden */
-            transition: opacity 0.5s ease; /* Smooth transition for fade-in/out */
-            pointer-events: none; /* This disables all mouse events on the image */
-            z-index: 2; /* Ensure image is above the pfp */
+            top: 0; 
+            left: 0; 
+            width: 200px; 
+            height: 200px; 
+            border-radius: 50%; 
+            opacity: 0; 
+            transition: opacity 0.5s ease; 
+            pointer-events: none; 
+            z-index: 2; 
         }
 
         /* Fade in effect on click */
         .profile-wrapper:focus .blush-image,
         .profile-wrapper:active .blush-image {
-            opacity: 1; /* Show the blush image when clicked */
-            animation: fadeOut 2s forwards; /* Fade out after 2 seconds */
+            opacity: 1; 
+            animation: fadeOut 2s forwards;
         }
 
         /* Keyframes for fade out */
         @keyframes fadeOut {
             0% {
-                opacity: 0; /* Start fully visible */
+                opacity: 0;
             }
             50% {
-                opacity: 1; /* Fade to invisible */
+                opacity: 1; 
             }
             100% {
-                opacity: 0; /* Fade to invisible */
+                opacity: 0; 
             }
         }
 
@@ -227,7 +227,7 @@
 
     <div class="container">
         <div class="profile-wrapper" tabindex="0">
-          <img src="icons/blush.png" alt="Blush UwU" class="blush-image" id="blushImage">
+          <img src="icons/blush.png" alt="Blush" class="blush-image" id="blushImage">
           <img src="icons/pfp.png" alt="Profile Picture" class="profile-image" id="profileImage">
         </div>
 
@@ -236,8 +236,8 @@
         <p>Silly fluff on the internet, does a bit of everything.</p>
         <p>Art. Code. Bark.</p>
 
-        <a href="https://t.me/iFoxifed" class="link"><img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram Logo"> iFoxifed</a>
-        <a href="https://www.reddit.com/user/iFoxified" class="link"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/b/bd/Reddit_Logo_Icon.svg/1024px-Reddit_Logo_Icon.svg.png" alt="Reddit Logo"> iFoxifed</a>
+        <a href="https://t.me/iFoxified" class="link"><img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram Logo"> iFoxified</a>
+        <a href="https://www.reddit.com/user/iFoxified" class="link"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/b/bd/Reddit_Logo_Icon.svg/1024px-Reddit_Logo_Icon.svg.png" alt="Reddit Logo"> iFoxified</a>
         <a href="https://barq.app/p/kvju55X" class="link"><img src="https://web.barq.app/logo.svg" alt="Barq Logo"> Foxified</a>
         <a href="https://tiktok.com/@knbfgfoxy" class="link"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Ionicons_logo-tiktok.svg/512px-Ionicons_logo-tiktok.svg.png" alt="TikTok Logo"> knbfgfoxy</a>
     </div>
@@ -250,9 +250,8 @@
             particle.classList.add('particle');
             document.body.appendChild(particle);
 
-            // random starting position from the bottom
             particle.style.left = `${Math.random() * 100}vw`;
-            particle.style.bottom = `-30px`; // Start from the bottom
+            particle.style.bottom = `-30px`; 
             particle.style.animationDuration = `${Math.random() * 10 + 5}s`;
             particle.style.animationDelay = `${Math.random() * 5}s`;
             particle.style.transform = `scale(${Math.random()})`;
@@ -262,15 +261,14 @@
         const profileImage = document.getElementById('profileImage');
         const blushImage = document.getElementById('blushImage');
 
-        // Function to show blush image
+
         function showBlush() {
-            blushImage.classList.add('visible'); // Show the blush image
+            blushImage.classList.add('visible'); 
             setTimeout(() => {
-                blushImage.classList.remove('visible'); // Hide after 2 seconds
+                blushImage.classList.remove('visible'); 
             }, 2000);
         }
 
-        // Event listener for click on the profile image
         profileImage.addEventListener('click', showBlush);
     </script>
 </body>
